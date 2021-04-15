@@ -69,10 +69,8 @@
     <Compile Include="ApplicationForm.designer.cs">
       <DependentUpon>ApplicationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="..\..\..\Databaser\Labb2\DBConnection.cs">
-      <Link>DBConnection.cs</Link>
-    </Compile>
-    <Compile Include="Class1.cs" />
+    <Compile Include="DBConnection.cs" />
+    <Compile Include="PhoneNumbers.cs" />
     <Compile Include="Student.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -92,6 +90,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
