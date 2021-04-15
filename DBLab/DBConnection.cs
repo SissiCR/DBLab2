@@ -954,11 +954,60 @@ namespace DBLabs
         public override DataTable getStaffingYears()
         {
             //Dummy code - Remove!DVA234_2019_C6_db like this at all when you are using a database!!
-            DataTable dt = new DataTable();
+            /*DataTable dt = new DataTable();
             dt.Columns.Add("Year");
             dt.Rows.Add(2000);
-            return dt;
-           
+            return dt;*/
+            DataTable table = new DataTable();
+            connection = new SqlConnection(connectionString);
+            connection.Open();
+            SqlDataAdapter dataAdpater = new SqlDataAdapter("SELECT * FROM StaffingYears", connection);
+            DataTable categoryTable = new DataTable();
+            dataAdpater.Fill(categoryTable);
+            DataRow categoryRow = categoryTable.Rows[0];
+            //categoryRow["Years"] = "Years";
+
+            dataAdpater.Update(categoryTable);
+
+            Console.WriteLine("Rows after update.");
+            foreach (DataColumn row in categoryTable.Columns)
+            {
+                {
+                    var y = row;
+                    table.Columns.Add("Year");
+                }
+            }
+
+            foreach (DataRow row in categoryTable.Rows)
+            {
+                {
+                    int r = Convert.ToInt32(row[0]);
+                    Console.WriteLine(r);
+                    table.Rows.Add(r);
+                }
+            }
+            //SqlCommand cmd = new SqlCommand("Select * from StaffingYears", connection);
+            //cmd.CommandType = CommandType.StoredProcedure;
+            //SqlDataReader reader2;
+
+            /*DataTable table = new DataTable();
+
+            try
+            {
+                reader2 = cmd.ExecuteReader();
+                table.Load(reader2);
+
+                return table;
+            }
+
+            catch (SqlException b)
+            {
+                MessageBox.Show(b.Message.ToString());
+            }
+            */
+            return table;
+
+
         }
 
         /*
